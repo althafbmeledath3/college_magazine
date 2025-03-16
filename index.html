@@ -39,15 +39,15 @@
   <body>
     <section class="header">
       <nav>
-        <a href="index.html"><img src="Images/ihrdlogorx.png" alt="Logo" /></a>
+        <a href="index.html"><img src="Images/ihrdlogorxresized-removebg-preview.png" alt="Logo" class="logo"/></a>
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onclick="hideMenu()"></i> <!-- Close icon -->
           <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="courses.html">COURSES</a></li>
-            <li><a href="blog.html">BLOGS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="index.html" style="color: white;">HOME</a></li>
+            <li><a href="about.html" style="color: white;">ABOUT</a></li>
+            <li><a href="courses.html" style="color: white;">COURSES</a></li>
+            <li><a href="blog.html" style="color: white;">BLOGS</a></li>
+            <li><a href="contact.html" style="color: white;">CONTACT</a></li>
           </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i> <!-- Hamburger icon -->
@@ -73,21 +73,35 @@
       <div class="row">
         <div class="campus-col">
          <img src="Images/ronaldo.jpg" style="height: 100%;" alt="" />
-          <a href="https://online.fliphtml5.com/eiqam/kvvv/" ><div class="layer">
+          <a href="https://online.fliphtml5.com/eiqam/kvvv/" target="_blank" ><div class="layer">
             <h3>2024-25</h3>
           </div></a>
         </div>
-        <div class="campus-col">
-          <img src="Images/campus2.jpg" alt="" />
-          <div class="layer">
-            <h3>Coming Soon</h3>
+        <div class="upload-container">
+          <div class="upload-box" id="upload-box-1">
+            <img src="Images/newup-removebg-preview.png" alt="Upload Icon" id="preview-1">
+            <h3>Upload Magazine</h3>
+            <p>Click Upload before your Wi-Fi changes its mind!</p>
           </div>
+        
+          <div id="file-name-1" class="file-display"></div>
+        
+          <input type="file" id="file-upload-1" accept=".pdf" hidden>
+          <button class="upload-btn" id="upload-btn-1" onclick="document.getElementById('file-upload-1').click()">Select PDF</button>
         </div>
-        <div class="campus-col">
-          <img src="Images/campus3.jpg" alt="" />
-          <div class="layer">
-            <h3>Coming Soon</h3>
+        
+        <div class="upload-container">
+          <div class="upload-box">
+            <img src="Images/newup-removebg-preview.png" alt="Upload Icon">
+            <h3>Upload Magazine</h3>
+            <p>Click Upload before your Wi-Fi changes its mind!</p>
           </div>
+        
+          <!-- PDF File Display Area -->
+          <div id="file-name-2" class="file-display"></div>
+        
+          <input type="file" id="file-upload-2" accept=".pdf" hidden>
+          <button class="upload-btn" id="upload-btn-2" onclick="document.getElementById('file-upload-2').click()">Select PDF</button>
         </div>
       </div>
     </section>
@@ -237,7 +251,51 @@ To enable students to engineer ingenious solutions with the greatest degree of a
       var closeIcon = document.querySelector(".fa-times");
       closeIcon.addEventListener("click", hideMenu);
     </script>
-    
+
+
+
+<script>
+  function handleFileUpload(inputId, displayId, buttonId) {
+    let fileInput = document.getElementById(inputId);
+    let fileNameDisplay = document.getElementById(displayId);
+    let uploadButton = document.getElementById(buttonId);
+
+    fileInput.addEventListener("change", function() {
+      let file = this.files[0];
+
+      if (file) {
+        if (file.type === "application/pdf") {
+          fileNameDisplay.innerHTML = `<p>📄 ${file.name}</p>`;
+          uploadButton.textContent = "Submit"; // Change button text to Submit
+          uploadButton.style.background = "#4CAF50"; // Change button color (green)
+
+        } else {
+          fileNameDisplay.innerHTML = `<p style="color:red;">❌ Please select a PDF file!</p>`;
+          this.value = ""; // Clear input if not a PDF
+          uploadButton.textContent = "Select PDF"; // Reset button text
+          uploadButton.style.background = "#ff4d4d"; // Reset button color (red)
+        }
+      }
+
+      if(uploadButton.textContent=="Submit"){
+        uploadButton.id="hey"
+        uploadButton.addEventListener('click',()=>{
+          alert("Submitted Successfully Your File will come Soon Backend Work In Progress")
+        })
+      }
+    });
+  }
+
+  // Attach event listeners to both file inputs
+  handleFileUpload("file-upload-1", "file-name-1", "upload-btn-1");
+  handleFileUpload("file-upload-2", "file-name-2", "upload-btn-2");
+</script>
+
+
+
+
+
+
     
   </body>
 </html>
