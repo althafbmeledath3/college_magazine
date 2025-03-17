@@ -265,6 +265,32 @@ To enable students to engineer ingenious solutions with the greatest degree of a
                 <input type="text" name="subject" placeholder="Enter your subject" required/>
                 <textarea name="message" placeholder="Message" rows="10" required></textarea>
                 <button type="submit" class="hero-btn red-btn">Send Message</button>
+
+<style>
+  .hero-btn.red-btn {
+      background-color: white;
+      color: #d32f2f; /* Red color */
+      border: 2px solid #d32f2f;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+  }
+
+  .hero-btn.red-btn:hover {
+      background-color: #d32f2f;
+      color: white;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+  }
+
+  .hero-btn.red-btn:active {
+      transform: scale(0.98);
+  }
+</style>
+
             </form>
         </div>
         
