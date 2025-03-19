@@ -88,7 +88,14 @@
               <input type="email" name="email" placeholder="Enter your email" required/>
               <input type="text" name="subject" placeholder="Enter your subject" required/>
               <textarea name="message" placeholder="Message" rows="10" required></textarea>
-              <button type="submit" class="hero-btn red-btn">Send Message</button>
+              <button 
+        type="submit" 
+        class="hero-btn red-btn" 
+        style="color: red; background-color: white; border: 2px solid red; transition: 0.3s;" 
+        onmouseover="this.style.backgroundColor='red'; this.style.color='white';" 
+        onmouseout="this.style.backgroundColor='white'; this.style.color='red';">
+        Send Messege
+    </button>
           </form>
       </div>
       
